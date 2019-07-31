@@ -1,0 +1,30 @@
+.number-board {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 600px;
+    height: 600px;
+    background-color: #34495e;
+  }
+}
+
+.number-board__box {
+  width: 40px;
+  height: 40px;
+  margin: 10px;
+  background-color: #1abc9c;
+  line-height: 40px;
+  text-align: center;
+  color: #ecf0f1;
+  display: inline-block;
+  font-weight: 500;
+
+  &--picked {
+    background-color: #e74c3c;
+  }
+}
