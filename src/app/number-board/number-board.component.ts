@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -7,8 +7,8 @@ import { Observable } from 'rxjs';
   styleUrls: ['./number-board.component.scss']
 })
 export class NumberBoardComponent implements OnInit {
+  @Input() geneatedValue: number;
   boardNumbers: number[] = [];
-  pickedNumber = 35;
   constructor() { }
 
   ngOnInit() {

@@ -2,7 +2,7 @@
   <div class="number-board__container">
     <div class="number-board__numbers">
       <ng-container *ngFor="let number of boardNumbers">
-        <div class="number-board__box" [ngClass]="{'number-board__box--picked': number === pickedNumber}">
+        <div class="number-board__box" [ngClass]="{'number-board__box--picked': number === geneatedValue}">
           {{number}}
         </div>
       </ng-container>

@@ -6,5 +6,9 @@ import { Component, ViewEncapsulation } from '@angular/core';
   encapsulation: ViewEncapsulation.None
 })
 export class AppComponent {
+  generatedNumber: number;
   title = 'Housey-app';
+  onNumGen($event) {
+    this.generatedNumber = $event;
+  }
 }
