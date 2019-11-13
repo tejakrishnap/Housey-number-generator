@@ -11,13 +11,37 @@ export class NumberGeneratorComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    function getRandomInt(min, max) {
-      min = Math.ceil(min);
-      max = Math.floor(max);
-      return Math.floor(Math.random() * (max - min)) + min;
+    const called = [];
+    const numbers = [];
+    for (let i = 1; i <= 90; i++) {
+      numbers.push(i);
     }
-    this.generatedValue = getRandomInt(1, 90);
-    this.genValue.emit(this.generatedValue);
-  }
 
+    // Randomize an array (Durstenfeld shuffle)
+    for (let i = numbers.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      const temp = numbers[i];
+      numbers[i] = numbers[j];
+      numbers[j] = temp;
+    }
+
+    // tslint:disable-next-line:prefer-for-of
+    for (let i = 0; i < numbers.length; i++) {
+      called.push(numbers[i]);
+    }
+
+    const giveTheFirstValue = () => {
+      return called.shift();
+    };
+
+    const spitNumberOut = setInterval(() => {
+      if (called.length > 0) {
+        this.generatedValue = giveTheFirstValue();
+        this.genValue.emit(this.generatedValue);
+      } else {
+        console.log('We are done here!');
+        clearInterval(spitNumberOut);
+      }
+    }, 4000);
+  }
 }

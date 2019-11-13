@@ -27,4 +27,21 @@
   &--picked {
     background-color: #e74c3c;
   }
+
+  &--history {
+    background-color: #f1c40f;
+  }
+}
+
+.generated-text__value--prev {
+  font-size: 18px;
+  // background-color: #e67e22;
+  background-color: #576574;
+  color: #ecf0f1;
+  font-weight: 500;
+  padding: 5px;
+  letter-spacing: 5px;
+  width: 330px;
+  text-align: center;
+  margin: 10px auto;
 }
