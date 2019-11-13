@@ -4,11 +4,13 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NumberBoardComponent } from './number-board/number-board.component';
+import { NumberGeneratorComponent } from './number-generator/number-generator.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NumberBoardComponent
+    NumberBoardComponent,
+    NumberGeneratorComponent
   ],
   imports: [
     BrowserModule,

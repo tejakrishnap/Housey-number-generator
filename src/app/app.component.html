@@ -1,1 +1,5 @@
-<app-number-board></app-number-board>
+<div class="text-center font-normal">
+  Housey Number Generator
+</div>
+<app-number-generator (genValue)="onNumGen($event)"></app-number-generator>
+<app-number-board [geneatedValue]="generatedNumber"></app-number-board>

@@ -1,8 +1,13 @@
+<div class="generated-text__value--prev">
+  PREVIOUS NUMBER: {{prevNumber}}
+</div>
 <div class="number-board">
   <div class="number-board__container">
     <div class="number-board__numbers">
       <ng-container *ngFor="let number of boardNumbers">
-        <div class="number-board__box" [ngClass]="{'number-board__box--picked': number === pickedNumber}">
+        <div class="number-board__box"
+        [ngClass]="{'number-board__box--picked': number === geneatedValue}"
+        attr.data-value="{{number}}">
           {{number}}
         </div>
       </ng-container>
