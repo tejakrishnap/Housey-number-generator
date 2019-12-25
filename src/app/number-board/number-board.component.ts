@@ -1,5 +1,6 @@
 import { UserInformationService } from './../user-information.service';
 import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-number-board',
@@ -13,14 +14,19 @@ export class NumberBoardComponent implements OnInit, OnChanges {
   boardNumbers: number[] = [];
   numberAppearenceObj: object = {};
   userName: string;
-  constructor(private userInformationService: UserInformationService) {
+  constructor(private userInformationService: UserInformationService, private router: Router) {
   }
 
   ngOnInit() {
     for (let i = 1; i <= 90; i++) {
       this.boardNumbers.push(i);
     }
-    this.userName = this.userInformationService.userFormData.userName;
+
+    if (this.userInformationService.userFormData === undefined) {
+      this.router.navigateByUrl('');
+    } else {
+      this.userName = this.userInformationService.userFormData.userName;
+    }
   }
 
   ngOnChanges(changes: SimpleChanges) {

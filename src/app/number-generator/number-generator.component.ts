@@ -7,6 +7,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./number-generator.component.scss']
 })
 export class NumberGeneratorComponent implements OnInit {
+  private pickingTime = 0;
   generatedValue: number;
   secondsCounter: number;
   @Output() genValue = new EventEmitter<number>();
@@ -41,15 +42,18 @@ export class NumberGeneratorComponent implements OnInit {
       this.secondsCounter++;
     }, 1000);
 
-    const loaderTime = this.userInformationService.userFormData.pickingTime;
-    console.log(this.userInformationService.userFormData.pickingTime);
+    if (this.userInformationService.userFormData !== undefined) {
+      this.pickingTime = this.userInformationService.userFormData.pickingTime;
+    }
 
     const spitNumberOut = setInterval(() => {
       const counterElement = document.querySelector('[data-number-loader]');
       const pickedNumber = document.querySelector('[data-picked-number]');
       if (called.length > 0) {
-        counterElement.classList.add('hide');
-        pickedNumber.classList.remove('hide');
+        if (counterElement || pickedNumber) {
+          counterElement.classList.add('hide');
+          pickedNumber.classList.remove('hide');
+        }
         this.generatedValue = giveTheFirstValue();
         this.genValue.emit(this.generatedValue);
       } else {
@@ -57,9 +61,11 @@ export class NumberGeneratorComponent implements OnInit {
         clearInterval(spitNumberOut);
       }
       setTimeout(() =>  {
-        counterElement.classList.remove('hide');
-        pickedNumber.classList.add('hide');
+        if (counterElement || pickedNumber) {
+          counterElement.classList.remove('hide');
+          pickedNumber.classList.add('hide');
+        }
       }, 2000);
-    }, (this.userInformationService.userFormData.pickingTime * 1000));
+    }, (this.pickingTime * 1000));
   }
 }

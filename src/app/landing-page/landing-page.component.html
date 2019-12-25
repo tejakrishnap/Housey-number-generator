@@ -3,14 +3,14 @@
 </div>
 
 <div class="housey_user-form">
-  <form [formGroup]="houseyUserForm" (ngSubmit)="onSubmit()" #userFormData="ngForm">
+  <form (ngSubmit)="onSubmit()" #userFormData="ngForm">
     <div class="text-center">
       <label for="hostName">Please Enter a host name: </label>
-      <input type="text" formControlName="hostName" id="hostName" [(ngModel)]="userDataModel.userName">
+      <input type="text" name="hostName" id="hostName" [(ngModel)]="userDataModel.userName">
     </div>
     <div class="text-center pt-40">
       <label for="picking-time">Choose the time: </label>
-      <select formControlName="pickingTime" id="picking-time" [(ngModel)]="userDataModel.pickingTime">
+      <select name="pickingTime" id="picking-time" [(ngModel)]="userDataModel.pickingTime">
         <option value="1">1s</option>
         <option value="5">5s</option>
         <option value="10">10s</option>
@@ -24,7 +24,7 @@
     </div>
     <div class="text-center pt-40">
       <label for="dark-mode">Dark Mode (Off/On):  </label>
-      <input type="checkbox" formControlName="darkmode" id="dark-mode" [(ngModel)]="userDataModel.darkMode">
+      <input type="checkbox" name="darkmode" id="dark-mode" [(ngModel)]="userDataModel.darkMode">
     </div>
     <div class="text-center pt-40">
       <input type="submit" class="button" value="Submit">
