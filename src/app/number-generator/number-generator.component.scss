@@ -1,3 +1,20 @@
+.generated-value__board {
+  position: relative;
+  height: 115px;
+}
+
+.number-loder {
+  position: absolute;
+  left: 48%;
+  margin-left: -50px;
+  top: 43%;
+  margin-top: -50px;
+  font-size: 20px;
+  font-weight: lighter;
+  text-align: center;
+  color: #636e72;
+}
+
 .generated-text__value {
   font-size: 100px;
   font-weight: 200;
@@ -14,5 +31,36 @@
     width: 330px;
     text-align: center;
     margin: 10px auto;
+  }
+}
+
+// loading animation
+
+.lds-circle {
+  display: block;
+  transform: translateZ(1px);
+}
+.lds-circle > div {
+  display: inline-block;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border-radius: 50%;
+  background: #ff7675;
+  animation: lds-circle 2.4s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+@keyframes lds-circle {
+  0%, 100% {
+    animation-timing-function: cubic-bezier(0.5, 0, 1, 0.5);
+  }
+  0% {
+    transform: rotateY(0deg);
+  }
+  50% {
+    transform: rotateY(1800deg);
+    animation-timing-function: cubic-bezier(0, 0.5, 0.5, 1);
+  }
+  100% {
+    transform: rotateY(3600deg);
   }
 }

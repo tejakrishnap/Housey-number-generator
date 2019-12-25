@@ -1,0 +1,33 @@
+<div class="text-center font-normal">
+  Housey Number Generator
+</div>
+
+<div class="housey_user-form">
+  <form [formGroup]="houseyUserForm" (ngSubmit)="onSubmit()" #userFormData="ngForm">
+    <div class="text-center">
+      <label for="hostName">Please Enter a host name: </label>
+      <input type="text" formControlName="hostName" id="hostName" [(ngModel)]="userDataModel.userName">
+    </div>
+    <div class="text-center pt-40">
+      <label for="picking-time">Choose the time: </label>
+      <select formControlName="pickingTime" id="picking-time" [(ngModel)]="userDataModel.pickingTime">
+        <option value="1">1s</option>
+        <option value="5">5s</option>
+        <option value="10">10s</option>
+        <option value="15">15s</option>
+        <option value="20">20s</option>
+        <option value="30">30s</option>
+        <option value="40">40s</option>
+        <option value="50">50s</option>
+        <option value="60">60s</option>
+      </select>
+    </div>
+    <div class="text-center pt-40">
+      <label for="dark-mode">Dark Mode (Off/On):  </label>
+      <input type="checkbox" formControlName="darkmode" id="dark-mode" [(ngModel)]="userDataModel.darkMode">
+    </div>
+    <div class="text-center pt-40">
+      <input type="submit" class="button" value="Submit">
+    </div>
+  </form>
+</div>

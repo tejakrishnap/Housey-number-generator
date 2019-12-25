@@ -1,3 +1,4 @@
+import { UserInformationService } from './../user-information.service';
 import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
 
 @Component({
@@ -11,17 +12,24 @@ export class NumberBoardComponent implements OnInit, OnChanges {
   prevNumber: string;
   boardNumbers: number[] = [];
   numberAppearenceObj: object = {};
-  constructor() { }
+  userName: string;
+  constructor(private userInformationService: UserInformationService) {
+  }
 
   ngOnInit() {
     for (let i = 1; i <= 90; i++) {
       this.boardNumbers.push(i);
     }
+    this.userName = this.userInformationService.userFormData.userName;
   }
 
   ngOnChanges(changes: SimpleChanges) {
     if (!isNaN(changes.geneatedValue.currentValue)) {
+      const previousNumberEle = document.querySelector('[data-previous-number]');
       this.prevNumber = changes.geneatedValue.previousValue;
+      if (this.prevNumber !== undefined) {
+        previousNumberEle.classList.remove('hide');
+      }
       if (!isNaN(+this.prevNumber)) {
         const prevValueEle = document.querySelector('[data-value="' + this.prevNumber + '"]') as HTMLElement;
         prevValueEle.style.backgroundColor = 'yellow';
