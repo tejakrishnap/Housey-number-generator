@@ -5,11 +5,4 @@ import { Component, ViewEncapsulation } from '@angular/core';
   styleUrls: ['./app.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class AppComponent {
-  generatedNumber: number;
-  title = 'Housey-app';
-
-  onNumGen($event) {
-    this.generatedNumber = $event;
-  }
-}
+export class AppComponent { }
